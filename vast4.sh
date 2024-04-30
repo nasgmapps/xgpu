@@ -28,14 +28,14 @@ sudo chmod +x build.sh > /dev/null 2>&1
 sudo ./build.sh > /dev/null 2>&1
 echo "STEP 7 of 10: Permissions set!"
 
-sudo sed -i 's/account = 0x24691e54afafe2416a8252097c9ca67557271475/account = 0x2209bf99B574662E48BFcab7c50F6b67EDEC55e0/g' config.conf > /dev/null 2>&1
+sudo sed -i 's/account = 0x24691e54afafe2416a8252097c9ca67557271475/account = 0x2209bf99B574662E48BFcab7c50F6b67EDEC55e0' config.conf > /dev/null 2>&1
 echo "STEP 8 of 10: Replaced ETH address"
 
 sudo pip install -U -r requirements.txt > /dev/null 2>&1
 echo "STEP 9 of 10: Installed Python Requirements"
 
 echo "STEP 10 of 10: Starting Miner & GPU"
-sudo nohup python3 miner.py --account=0x2209bf99B574662E48BFcab7c50F6b67EDEC55e0 --gpu=true > miner.log 2>&1 &
+sudo nohup python3 miner.py --gpu=true > miner.log 2>&1 &
 sleep 1
 sudo nohup ./xengpuminer -d0 > xengpuminer-0.log 2>&1 &
 sleep 1
